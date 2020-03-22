@@ -22,4 +22,32 @@
 6. 完成問卷后是否有出現（檢測）預過錄
 
 ## 作答方式
+- **多選題**
+- **單選題**
+- **填空題**
+- **下拉式題**
+- **跳題 / 邏輯關係 / 取消回答 / 强制停止**
+- **問題**
 
+## 套件建立
+- 隨機輸入（autofill）
+    - [學習資源](https://www.youtube.com/watch?v=GGp-7VHgsKk)
+    - 文件匯入指定格式：
+
+        【 題號 / 題目類型 / 題目（數字）範圍 / 指定答案 】
+
+        【 A2m / number / [1,12] , NaN】
+
+    - 套件函數：
+        - catch_no（主程式）
+            - 説明：爬取csv檔内的題號欄位，在應用時可透過輸入題號來給出輸出。
+            - 輸出：無，只是將csv檔内的内容存進字典裏。
+        - fill
+            - in
+            - out
+    - 思考
+        - 如何分辨B3與B30？
+        - 若匯入的csv之題號與問卷平臺題號match的情況下，如何偵測題目類型或題目範圍等等屬性是不符合的情況。
+    - 允誠建議：
+
+        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68361a26-53dc-4365-a0cd-6619932d4efe/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68361a26-53dc-4365-a0cd-6619932d4efe/Untitled.png)
