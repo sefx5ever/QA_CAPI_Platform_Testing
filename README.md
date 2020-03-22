@@ -48,6 +48,3 @@
     - 思考
         - 如何分辨B3與B30？
         - 若匯入的csv之題號與問卷平臺題號match的情況下，如何偵測題目類型或題目範圍等等屬性是不符合的情況。
-    - 允誠建議：
-
-        ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68361a26-53dc-4365-a0cd-6619932d4efe/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68361a26-53dc-4365-a0cd-6619932d4efe/Untitled.png)
