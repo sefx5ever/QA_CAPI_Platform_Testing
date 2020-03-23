@@ -20,9 +20,9 @@ def run_browser(browser):
     """
     主要針對給定搜尋引擎執行虛擬化，並登錄賬號
     """
-    AS_WEBSITE_LINK = 'https://capi.geohealth.tw/'
-    LOGIN_ID = 'scs10'
-    LOGIN_PASS = 'ios0000'
+    AS_WEBSITE_LINK = ''
+    LOGIN_ID = ''
+    LOGIN_PASS = ''
 
     if browser == "ie":
         driver = webdriver.Ie()
@@ -46,7 +46,7 @@ def import_condition():
     """
     針對不同問卷之標準進行條件匯入，需自訂輸入文件位置。
     """
-    LOGIC_FILE_LOCATION = 'C:/Users/sefx5/Downloads/CAPI_test.csv'
+    LOGIC_FILE_LOCATION = ''
     df = pd.read_csv( LOGIC_FILE_LOCATION ,encoding='utf-8',dtype = {'layer_2' : str})
     df['question_logic'] = df['question_logic'].fillna('')
     df['question'] = df['layer_1'].astype(str) + df['layer_2'] + df['layer_3'].fillna('')
