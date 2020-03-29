@@ -31,20 +31,44 @@
 
 ## 套件建立
 - 隨機輸入（autofill）
-    - [學習資源](https://www.youtube.com/watch?v=GGp-7VHgsKk)
+    - [學習資源：創建套件](https://www.youtube.com/watch?v=GGp-7VHgsKk)
     - 文件匯入指定格式：
 
-        【 題號 / 題目類型 / 題目（數字）範圍 / 指定答案 】
+        【 quest_no/ quest_type / quest_condition / quest_force_ans 】
 
         【 A2m / number / [1,12] , NaN】
 
+    - 文件題目類型規範：
+        - 單選題（string）
+            - 若在選擇後，出現填空的部分，則在 quest_type 輸入填空類型，quest_condition 中輸入對應輸入的值（若不輸入則輸出 type_blank 中的内容）。
+            - 範例1：[text,faodbkfjsjknv,4]
+            - 範例2：[,,2]
+            - 範例3：[]
+            - 範例中為輸入須符合 text 類別，所輸入值為 faodbkfjsjknv，在選擇時點擊第 4 項選項。
+        - 多選題（list【string，number】）
+            - 若需指定答案，則以 list 形式儲存。若在選擇後，出現填空的部分，則在 quest_type 輸入填空類型，quest_condition 中輸入對應輸入的值（若不輸入則輸出 type_blank 中的内容）。
+            - 範例1：[,,[2,3,4]]
+            - 範例2：[text,faodbkfjsjknv,[1,3,5]]
+            - 若輸入值都爲空值，則用總選項除半（n），然後用 random 套件輸出（n）個答案。
+        - 下拉式（string【list】）
+            - 在 dropdown 題型中，以 list of list形式儲存，第一層 list 之第 0 項則是下拉式中選擇的項目，則第二層 list 可儲存string（填空狀態） 或則 int（下拉式選擇）。
+            - 範例1：[,,[2,[1,3]]]
+            - 範例2：[text,vdjfnvgjkdf,[1,['string']]]
+            - 若在選擇後，出現填空的部分，則在 quest_type 輸入填空類型，quest_condition 中輸入對應輸入的值（若不輸入則輸出 type_blank 中的内容）。
+        - 填空題（string，number）
+            - 若有輸入值，則進行 return，不輸入則隨機輸出。若輸入類型為 number，則用 random 套件，把給定區間輸入 random.randint 中進行隨機生成。
+            - 範例1：[text,,sdflsdf]
+            - 範例2：[number,[1,4],]
     - 套件函數：
-        - catch_no（主程式）
-            - 説明：爬取csv檔内的題號欄位，在應用時可透過輸入題號來給出輸出。
-            - 輸出：無，只是將csv檔内的内容存進字典裏。
+        - read_csv
+            - 説明：在初始化時，讀取給定路徑並以 dataframe 形式開啓且儲存在變數 file_reader 中。
+            - 輸出：dataframe
+        - catch
+            - 説明：將給定的小題文字在 dataframe 中搜尋，若有結果（以 len 為判斷標準），則進入 fill 函數。
+            - 輸出：list / int / string
         - fill
-            - in
-            - out
+            - 説明：進入此函數也代表著有指定條件需要進行操作。詳細内容，可參考【文件題目類型規範】。
+            - 輸出：可參考【文件題目類型規範】
     - 思考
         - 如何分辨B3與B30？
         - 若匯入的csv之題號與問卷平臺題號match的情況下，如何偵測題目類型或題目範圍等等屬性是不符合的情況。
