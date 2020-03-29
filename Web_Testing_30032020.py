@@ -17,9 +17,9 @@ def run_browser(browser):
     """
     主要針對給定搜尋引擎執行虛擬化，並登錄賬號
     """
-    AS_WEBSITE_LINK = 'https://capi.geohealth.tw/'
-    LOGIN_ID = 'scs10'
-    LOGIN_PASS = 'ios0000'
+    AS_WEBSITE_LINK = 'link_address'
+    LOGIN_ID = 'account_id'
+    LOGIN_PASS = 'account_password'
 
     if browser == "ie":
         driver = webdriver.Ie()
